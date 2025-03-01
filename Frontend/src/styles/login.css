@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  position:relative;
+}
+
+.login-form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.login-form, .login-image {
+  flex: 1; /* This ensures both sections take up equal space */
+}
+
+
+.spark-logo {
+  width: 50px;
+  position: fixed;
+  top: 20%;
+  left: 20px;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.password-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.password-input input {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.password-input button {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #d3d3c5;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #bfbfaf;
+}
+
+.forgot-password {
+  margin-top: 1rem;
+  text-align: center;
+  color: green;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.signup-link a {
+  color: green;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.login-image {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
+}
+
+ .responsive-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* object-fit: cover; */
+} 
+
+.login-image {
+  width: 50vw;
+  height: 100vh; /* Ensure it takes full height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
+  overflow: hidden; /* Prevents any unwanted scrolling */
+}
+
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-image {
+    display: none;
+  }
+
+  .login-form {
+    width: 100%;
+    padding: 2rem;
+  }
+}
+
