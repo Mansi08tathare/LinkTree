@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Check } from "lucide-react";
-import SparkLogo from "../assets/SparkIcon.png"; // ✅ Import properly
-import OnboardingImage from "../assets/loginFrame.png"; // ✅ Import properly
+import SparkLogo from "../assets/sparkicon.png"; 
+import OnboardingImage from "../assets/loginFrame.png"; 
 import "../styles/OnboardingPage.css"; 
 
 const OnboardingPage = () => {
