@@ -5,7 +5,7 @@ import SparkIcon from "../assets/sparkicon.png";
 import LogoutIcon from "../assets/logout.png";
 import LinksIcon from "../assets/links.png";
 import AppearanceIcon from "../assets/appearance.png";
-import AnalyticsIcon from "../assets/analytics.png";
+import AnalyticsIcon from "../assets/analytic.png";
 import SettingsIcon from "../assets/settings.png";
 import UserIcon from "../assets/user.png";
 
