@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:4000";
+const API_URL = "https://linktree-m8qx.onrender.com";
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem("token");
