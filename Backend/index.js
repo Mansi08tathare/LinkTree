@@ -15,9 +15,6 @@ const PORT = process.env.PORT || 4000
 app.use(cors())
 app.use(express.static(path.join(__dirname, "public")))
 
-app.get("/",(req,res)=>{
-    res.sendFile(path.join(__dirname,"public", "try.html")); 
-})
 
   
 app.use(express.urlencoded({extended:true}))
