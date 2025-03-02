@@ -84,6 +84,8 @@ const SignupPage = () => {
       if (!loginResponse || !loginResponse.token) {
         throw new Error(loginResponse.message || "Login failed");
       }
+        // Store token in localStorage (or sessionStorage)
+        localStorage.setItem("authToken", response.token);
   
       alert("User created and logged in successfully!");
       navigate("/onboarding");

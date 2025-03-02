@@ -1,48 +1,57 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import LandingPage from './pages/LandingPage';
-import LoginPage from './pages/LoginPage';
-import SignupPage from './pages/SignupPage';
-import OnboardingPage from './pages/OnboardingPage';
-import Dashboard from './pages/Dashboard';
-import AppearancePage from './pages/AppearancePage';
-import AnalyticsPage from './pages/AnalyticsPage';
-import SettingsPage from './pages/SettingsPage';
-// import { UserProvider } from './context/UserContext';
-
-// function App() {
-//   return (
-//     // <UserProvider>
-//       <Router>
-//         <Routes>
-//           <Route path="/" element={<LandingPage />} />
-//           <Route path="/login" element={<LoginPage />} />
-//           <Route path="/signup" element={<SignupPage />} />
-//           <Route path="/onboarding" element={<OnboardingPage />} />
-//           <Route path="/dashboard" element={<Dashboard />} />
-//           <Route path="/appearance" element={<AppearancePage />} />
-//           <Route path="/analytics" element={<AnalyticsPage />} />
-//           <Route path="/settings" element={<SettingsPage />} />
-//           <Route path="*" element={<Navigate to="/" replace />} />
-//         </Routes>
-//       </Router>
-//     // </UserProvider>
-//   );
-// }
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Import Toast CSS
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import OnboardingPage from "./pages/OnboardingPage";
+import Dashboard from "./pages/Dashboard";
+import Appearance from "./pages/AppearancePage";
+import Analytics from "./pages/AnalyticsPage";
+import Settings from "./pages/SettingsPage";
+import PrivateRoute from "./components/PrivateRoute";
+import Layout from "./components/Layout"; // Import Layout
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    () => localStorage.getItem("authToken") !== null
+  );
+
+  const login = (token) => {
+    localStorage.setItem("authToken", token);
+    setIsAuthenticated(true);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("authToken");
+    setIsAuthenticated(false);
+  };
+
   return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignupPage />} />
-      <Route path="/onboarding" element={<OnboardingPage />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/appearance" element={<AppearancePage />} />
-      <Route path="/analytics" element={<AnalyticsPage />} />
-      <Route path="/settings" element={<SettingsPage />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+    <>
+      {/* Toast Container for Global Notifications */}
+      <ToastContainer position="top-center" autoClose={3000} />
+
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/login" element={<LoginPage login={login} />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/onboarding" element={<OnboardingPage />} />
+
+        {/* Private Routes with Sidebar */}
+        <Route element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
+          <Route element={<Layout logout={logout} />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/appearance" element={<Appearance />} />
+            <Route path="/analytics" element={<Analytics />} />
+            <Route path="/settings" element={<Settings />} />
+          </Route>
+        </Route>
+
+        {/* Default Redirect */}
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </>
   );
 }
 

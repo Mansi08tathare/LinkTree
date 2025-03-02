@@ -1,0 +1,117 @@
+.sidebar {
+    height: 100vh;
+    width: 250px; /* Fixed width */
+    background-color: #F8F9FA;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 1000; /* Ensure it's above content */
+}
+
+.main-content {
+    margin-left: 250px; /* Push main content to the right */
+    padding: 20px;
+}
+
+  
+  /* Logo Section */
+  .sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Navigation Links */
+  .sidebar-nav {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #5C5F62;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .sidebar-link img {
+    height: 20px;
+    width: 20px;
+  }
+  
+  .sidebar-link:hover,
+  .sidebar-link.active {
+    background-color: #E9F5EE;
+    color: #1DBF73;
+  }
+  
+  /* User Profile */
+  .sidebar-profile-container {
+    position: relative;
+    margin-top: auto;
+  }
+  
+  .sidebar-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border: 2px solid #E0E0E0;
+    border-radius: 50px;
+    cursor: pointer;
+    background: white;
+  }
+  
+  .user-icon {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+  }
+  
+  /* Logout Popover */
+  .logout-popup {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .logout-popup button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #D32F2F;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .logout-icon {
+    height: 16px;
+    width: 16px;
+  }
+  
