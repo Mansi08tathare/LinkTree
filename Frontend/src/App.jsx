@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import Toast CSS
+import LandingPage from "./pages/LandingPage"; // Import Landing Page
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import OnboardingPage from "./pages/OnboardingPage";
@@ -33,6 +34,9 @@ function App() {
       <ToastContainer position="top-center" autoClose={3000} />
 
       <Routes>
+        {/* Landing Page Route */}
+        <Route path="/" element={<LandingPage />} />
+
         {/* Public Routes */}
         <Route path="/login" element={<LoginPage login={login} />} />
         <Route path="/signup" element={<SignupPage />} />
@@ -49,7 +53,7 @@ function App() {
         </Route>
 
         {/* Default Redirect */}
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
   );
