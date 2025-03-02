@@ -1,6 +1,6 @@
   import React, { useState, useRef } from 'react';
   import { Copy, Trash2, X, Plus, Share2, Edit3, Image as ImageIcon } from 'lucide-react';
-  import '../styles/Link.css';
+  import '../styles/link.css';
 
   const Dashboard = () => {
     const [profileImage, setProfileImage] = useState('https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80');
